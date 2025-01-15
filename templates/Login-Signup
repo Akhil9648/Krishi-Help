@@ -1,0 +1,91 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Farmer and Agriculture Login/Signup
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="bg-green-100 font-roboto">
+  <div class="min-h-screen flex items-center justify-center">
+   <div class="bg-white shadow-lg rounded-lg flex flex-col md:flex-row w-full max-w-4xl">
+    <div class="md:w-1/2 p-6 flex flex-col justify-center items-center bg-green-500 text-white">
+     <h2 class="text-3xl font-bold mb-4">
+      Welcome Farmers!
+     </h2>
+     <p class="mb-6">
+      Join us to get the best agricultural tips and market updates.
+     </p>
+     <img alt="A vibrant field of crops with a farmer working under a clear blue sky" class="rounded-lg" src="https://placehold.co/300x200"/>
+    </div>
+    <div class="md:w-1/2 p-6">
+     <div class="mb-6">
+      <h2 class="text-2xl font-bold text-center mb-2">
+       Login
+      </h2>
+      <form>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="login-email">
+         Email
+        </label>
+        <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="login-email" required="" type="email"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="login-password">
+         Password
+        </label>
+        <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="login-password" required="" type="password"/>
+       </div>
+       <div class="flex items-center justify-between mb-4">
+        <div>
+         <input class="mr-2" id="remember-me" type="checkbox"/>
+         <label class="text-gray-700" for="remember-me">
+          Remember me
+         </label>
+        </div>
+        <a class="text-green-500" href="#">
+         Forgot Password?
+        </a>
+       </div>
+       <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300" type="submit">
+        Login
+       </button>
+      </form>
+     </div>
+     <div>
+      <h2 class="text-2xl font-bold text-center mb-2">
+       Signup
+      </h2>
+      <form>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="signup-name">
+         Full Name
+        </label>
+        <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="signup-name" required="" type="text"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="signup-email">
+         Email
+        </label>
+        <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="signup-email" required="" type="email"/>
+       </div>
+       <div class="mb-4">
+        <label class="block text-gray-700" for="signup-password">
+         Password
+        </label>
+        <input class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="signup-password" required="" type="password"/>
+       </div>
+       <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300" type="submit">
+        Signup
+       </button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
