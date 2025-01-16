@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS users;
+
+
+CREATE TABLE users (
+    user_id BIGSERIAL PRIMARY KEY, 
+    full_name VARCHAR(100) NOT NULL,  
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,  
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE, -- yeh bataega ke user active hai ya nhi
+    is_verified BOOLEAN DEFAULT FALSE, -- yeh bataega ke email verified hai ya nhi
+    role VARCHAR(50) DEFAULT 'user' --  user hai ya admin use kr rha
+);
+
+-- Insert sample data
+INSERT INTO users (full_name, email, password_hash) 
+VALUES 
+('Archit Awasthi', 'archit@example.com', 'hashed_password123'),
+('Akhand Pratap', 'akh.pratap@example.com', 'hashed_password456');
+
+-- yeh query hai
+SELECT * FROM users;
