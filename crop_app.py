@@ -57,7 +57,7 @@ def predict():
         if prediction[0] in crop_dict:
             crop = crop_dict[prediction[0]]
             result = "{} is the best crop to be cultivated.".format(crop)
-            return render_template('crop_predict.html', result=result)
+            return render_template('crop_predict.html', result=result,crop = crop)
         else:
             result = "Sorry, we could not determine the best crop to be cultivated with the provided data."
             return render_template('crop_predict.html', result=None)
