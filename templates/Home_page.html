@@ -19,24 +19,19 @@
   <header class="bg-green-700 text-white p-4">
    <div class="container mx-auto flex justify-between items-center">
     <div class="flex items-center">
-     <img alt="Logo of a farm with a barn and a tractor" class="h-10 w-10 mr-2" src="https://img.freepik.com/premium-vector/agriculture-logo-icon-design-illustration_586739-93.jpg">
+     <img alt="Logo of a farm with a barn and a tractor" class="h-10 w-10 mr-2" src="https://m.media-amazon.com/images/I/71mZYtpC6KL.jpg">
      <h1 class="text-2xl font-bold">
-      Binary Brains
+      <a href="{{ url_for('home') }}">KRISHI-Help</a>
      </h1>
     </div>
     <nav>
      <ul class="flex space-x-4">
-      <li>
-       <a class="hover:underline" href="{{ url_for('about') }}">
-        About
-       </a>
-      </li>
+      <li><a class="hover:underline" href="{{ url_for('about') }}">About</a></li>
       <li><a class="hover:underline" href="{{ url_for('predict') }}">Predict Crop</a></li>
-      <li>
-       <a class="hover:underline" href="{{ url_for('contact_us') }}">
-        Contact
-       </a>
-      </li>
+      <li><a class="hover:underline" href="{{ url_for('crop_price_form') }}">Predict Crop Price</a></li>
+      <li><a class="hover:underline" href="{{ url_for('upload_file') }}">Predict Disease</a></li>
+      <li><a class="hover:underline" href="{{ url_for('weather') }}">Weather</a></li>
+      <li><a class="hover:underline" href="{{ url_for('contact_us') }}">Contact</a></li>
      </ul>
     </nav>
    </div>
@@ -166,7 +161,7 @@
   <footer class="bg-green-700 text-white py-6">
    <div class="container mx-auto text-center">
     <p>
-     © 2025 Binary Brains. All rights reserved.
+     © 2025 KRISHI-Help. All rights reserved.
     </p>
     <div class="flex justify-center space-x-4 mt-4">
      <a class="hover:text-gray-300" href="#">
