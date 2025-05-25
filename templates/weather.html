@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Weather Forecast
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- Favicon links (assuming they are in a 'static' folder) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+ </head>
+ <body class="font-roboto bg-gray-100 flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="bg-green-700 text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center">
+     <a href="{{ url_for('home') }}" class="flex items-center"> <!-- Make logo clickable to home -->
+       <img alt="Logo of a farm with a barn and a tractor" class="h-10 w-10 mr-2" src="https://m.media-amazon.com/images/I/71mZYtpC6KL.jpg">
+       <h1 class="text-2xl font-bold">
+        Krishi-Help
+       </h1>
+     </a>
+    </div>
+    <nav>
+     <ul class="flex space-x-4">
+      <li><a class="hover:underline" href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('chatbot_page') }}">Chatbot</a></li>
+      <li><a class="hover:underline" href="{{ url_for('predict') }}">Predict Crop</a></li>
+      <li><a class="hover:underline" href="{{ url_for('crop_price_form') }}">Predict Crop Price</a></li>
+      <li><a class="hover:underline" href="{{ url_for('contact_us') }}">Contact</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container mx-auto mt-4">
+        {% for category, message in messages %}
+          <div class="p-4 mb-4 rounded-lg {% if category == 'success' %}bg-green-100 text-green-700{% elif category == 'danger' %}bg-red-100 text-red-700{% elif category == 'warning' %}bg-yellow-100 text-yellow-700{% else %}bg-blue-100 text-blue-700{% endif %}" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Weather Section -->
+  <main class="flex-grow py-10">
+   <div class="container mx-auto text-center px-4">
+    <h1 class="text-3xl font-bold mb-8">
+     Weather Forecast
+    </h1>
+
+    <!-- City Input Form -->
+    <form method="GET" action="{{ url_for('weather') }}" class="mb-8 max-w-md mx-auto">
+        <div class="flex items-center border-b-2 border-green-500 py-2">
+            <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                   type="text" name="city" placeholder="Enter city name" aria-label="City name"
+                   value="{{ current_city or '' }}">
+            <button class="flex-shrink-0 bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-sm border-4 text-white py-1 px-2 rounded"
+                    type="submit">
+                Get Weather
+            </button>
+        </div>
+    </form>
+
+    <div id="weather-data-container" class="max-w-md mx-auto">
+      {% if weather_data %}
+        {% if not weather_data.error %}
+          <div class="bg-white p-6 rounded-lg shadow-lg text-left">
+            <h2 class="text-2xl font-bold mb-4">Weather in {{ weather_data.city }}</h2>
+            <p class="text-lg mb-2"><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+            <p class="text-lg mb-2"><strong>Condition:</strong> {{ weather_data.main_condition | capitalize }}</p>
+            <p class="text-lg"><strong>Description:</strong> {{ weather_data.description | capitalize }}</p>
+          </div>
+        {% else %} <!-- weather_data exists but has an error -->
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Error!</strong>
+            <span class="block sm:inline">{{ weather_data.error }}</span>
+          </div>
+        {% endif %}
+      {% elif current_city %} <!-- No weather_data, but a city was searched for (implies an issue before data fetching or initial empty search) -->
+        <p class="text-gray-500">Enter a valid city name and click "Get Weather".</p>
+      {% else %} <!-- Initial page load, no city entered yet -->
+        <p class="text-gray-500">Enter a city name above to get the current weather forecast.</p>
+      {% endif %}
+    </div>
+   </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-700 text-white py-6 mt-auto">
+   <div class="container mx-auto text-center">
+    <p>
+     © 2025 Krishi-Help. All rights reserved.
+    </p>
+    <div class="flex justify-center space-x-4 mt-4">
+     <a class="hover:text-gray-300" href="#">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a class="hover:text-gray-300" href="#">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a class="hover:text-gray-300" href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a class="hover:text-gray-300" href="#">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>

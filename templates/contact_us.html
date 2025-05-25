@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact Us | Krishi-Help</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        /* Card Styles */
+        .card {     
+            position: relative;
+            width: 190px; /* Fixed width */
+            height: 300px;
+            background-color: #15803D;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Keeps content at the bottom */
+            padding: 12px;
+            gap: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            margin: auto; 
+        }
+        
+        .card img.card-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; 
+            margin: 0 auto 10px; 
+            display: block; 
+            object-fit: cover; 
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            left: -5px;
+            margin: auto;
+            width: 200px;
+            height: 320px;
+            border-radius: 10px;
+            background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+            z-index: -10;
+            pointer-events: none;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card::after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+            transform: translate3d(0, 0, 0) scale(0.95);
+            filter: blur(20px);
+        }
+        
+        .heading {
+            font-size: 20px;
+            text-transform: capitalize;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 0%
+        }
+        
+        .card p:not(.heading) {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 1px;
+        }
+        
+        .card p:last-child {
+            color: #e81cff;
+            font-weight: 600;
+        }
+        
+        .card:hover::after {
+            filter: blur(30px);
+        }
+        
+        .card:hover::before {
+            transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links a {
+            font-size: 1.5rem;
+            color: white; 
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #0073e6;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem; 
+        }
+        
+        .social-icon.instagram:hover {
+            color: #e4405f; 
+        }
+        
+        .social-icon.linkedin:hover {
+            color: #0077b5; 
+        }
+
+        .contact-form {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<header class="bg-green-700 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+            <img alt="Logo" class="h-10 w-10 mr-2" src="https://m.media-amazon.com/images/I/71mZYtpC6KL.jpg">
+            <h1 class="text-2xl font-bold" ><a href="{{ url_for('home') }}">Krishi-Help</a></h1>
+        </div>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a class="hover:underline" href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('chatbot_page') }}">Chatbot</a></li>
+                <li><a class="hover:underline" href="{{ url_for('predict') }}">Predict Crop</a></li> 
+                <li><a class="hover:underline" href="{{ url_for('crop_price_form') }}">Predict Crop Price</a></li>
+                <li><a class="hover:underline" href="{{ url_for('weather') }}">Weather</a></li>
+                <li><a class="hover:underline" href="{{ url_for('about') }}">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="team" class="team py-8">
+    <h2 class="text-3xl font-bold mb-12 text-center">DEVELOPERS</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mx-auto max-w-4xl px-4">
+        <!-- Developer 1 -->
+        <div class="card">
+            <img src="static/akhand.png" alt="Akhand Pratap Shukla" class="card-image">
+            <p class="heading">Akhand P. Shukla</p>
+            <p>Team Lead & ML Developer</p>
+            <p class="social-links">
+                <a href="https://www.instagram.com/akhand_shukla36/" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/akhand-pratap-shukla" target="_blank" class="social-icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </div>
+
+        <!-- Developer 2 -->
+        <div class="card">
+            <img src="static/archit.jpeg" alt="Archit Awasthi" class="card-image">
+            <p class="heading">Archit Awasthi</p>
+            <p>Front-End Developer</p>
+            <p class="social-links">
+                <a href="https://www.instagram.com/architawasthii" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/archit-awasthi-31b677282/" target="_blank" class="social-icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </div>
+
+        <!-- Developer 3 -->
+        <div class="card">
+            <img src="static/akhil.jpeg" alt="Akhil Pandey" class="card-image">
+            <p class="heading">Akhil Pandey</p>
+            <p>Back-End Developer</p>
+            <p class="social-links">
+                <a href="https://www.instagram.com/akhilpandey___" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/akhilpandey9/" target="_blank" class="social-icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </p>
+        </div>
+
+        <!-- Wrapper for the second row of developers to center them and add vertical spacing -->
+        <div class="sm:col-span-2 md:col-span-3 flex flex-wrap justify-center gap-0.1 mt-6">
+            <!-- Developer 4 -->
+            <div class="card">
+                <img src="static/avnee.png" alt="Avnee Gaur" class="card-image">
+                <p class="heading">Avnee Gaur</p>
+                <p>UI/UX Designer</p>
+                <p class="social-links">
+                    <a href="https://www.instagram.com/avnee_gaur" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/avnee-gaur-66614a316" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </p>
+            </div>
+
+            <!-- Developer 5 -->
+            <div class="card">
+                <img src="static/arjun.jpeg" alt="Arjun Singh" class="card-image">
+                <p class="heading">Arjun Singh</p>
+                <p>UI/UX Designer</p>
+                <p class="social-links">
+                    <a href="https://www.instagram.com/_wtfsoul_" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Contact Us</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div class="contact-form">
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full p-2 border border-gray-300 rounded mb-4">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full p-2 border border-gray-300 rounded mb-4">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required class="w-full p-2 border border-gray-300 rounded mb-4"></textarea>
+
+                    <button type="submit" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </form>
+            </div>
+
+
+            
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="bg-gray-100 py-20">  </section>
+
+<footer class="bg-green-700 text-white py-6 mt-12">
+    <div class="container mx-auto text-center">
+        <p>© 2025 Krishi-Help. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a class="hover:text-gray-300" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="hover:text-gray-300" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="hover:text-gray-300" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="hover:text-gray-300" href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
