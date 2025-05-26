@@ -92,7 +92,6 @@ To run this project locally, follow these steps:
     python-dotenv
     requests
     google-generativeai
-    # Add any other specific versions if needed, e.g., Flask==2.0.1
     ```
     Install them using:
     ```bash
@@ -123,38 +122,69 @@ To run this project locally, follow these steps:
 ## 🚀 Project Structure
 Binary_Brains/
 ├── app.py                # Main Flask application
+
 ├── models/               # Directory for trained ML models and scalers
+
 │   ├── crop_model.pkl
+
 │   ├── sc.pkl
+
 │   ├── mx.pkl
+
 │   ├── fertilizer.pkl
+
 │   ├── crop_price.pkl
+
 │   ├── min_max_scaler.pkl
+
 │   ├── model_columns.pkl
+
 │   ├── original_numerical_cols.pkl
+
 │   └── original_categorical_cols.pkl
+
 ├── templates/            # HTML templates
+
 │   ├── Home_page.html
+
 │   ├── about.html
+
 │   ├── chat.html
+
 │   ├── contact_us.html
+
 │   ├── crop_predict.html
+
 │   ├── crop_price.html
+
 │   └── weather.html
+
 ├── static/               # Static files (CSS, JS, images, favicons)
+
 │   ├── apple-touch-icon.png
+
 │   ├── favicon-16x16.png
+
 │   ├── favicon-32x32.png
+
 │   ├── site.webmanifest
+
 │   ├── akhand.png
+
 │   ├── akhil.jpeg
+
 │   ├── archit.jpeg
+
 │   ├── arjun.jpeg
+
 │   ├── avnee.png
+
 │   ├── home1.jpg
+
 │   ├── ... (other images used in HTML)
-├── .env                  # Environment variables (API keys - DO NOT COMMIT THIS FILE if it contains real keys, use .env.example)
-├── .gitignore            # Specifies intentionally untracked files that Git should ignore
+
+├── .env                  # Environment variables (API keys)
+
 └── README.md             # This file
 
 ---
