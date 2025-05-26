@@ -2,7 +2,7 @@
 
 **Krishi-Help** is a comprehensive web platform designed to assist farmers by providing essential agricultural resources, cutting-edge predictive analytics for crop recommendation and price forecasting, an AI-powered chatbot for instant support, and real-time weather updates. Our mission is to leverage technology to simplify decision-making, enhance productivity, and promote sustainable agricultural practices.
 
-**Team:** Binary_Brains
+**Team:** Binary Brains
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Framework Flask](https://img.shields.io/badge/Framework-Flask-blue.svg)](https://flask.palletsprojects.com/)
