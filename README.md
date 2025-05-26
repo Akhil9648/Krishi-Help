@@ -119,44 +119,6 @@ To run this project locally, follow these steps:
 
 ---
 
-## 🚀 Project Structure
-Binary_Brains/
-├── app.py                # Main Flask application
-├── models/               # Directory for trained ML models and scalers
-│   ├── crop_model.pkl
-│   ├── sc.pkl
-│   ├── mx.pkl
-│   ├── fertilizer.pkl
-│   ├── crop_price.pkl
-│   ├── min_max_scaler.pkl
-│   ├── model_columns.pkl
-│   ├── original_numerical_cols.pkl
-│   └── original_categorical_cols.pkl
-├── templates/            # HTML templates
-│   ├── Home_page.html
-│   ├── about.html
-│   ├── chat.html
-│   ├── contact_us.html
-│   ├── crop_predict.html
-│   ├── crop_price.html
-│   └── weather.html
-├── static/               # Static files (CSS, JS, images, favicons)
-│   ├── apple-touch-icon.pn
-│   ├── favicon-16x16.png
-│   ├── favicon-32x32.png
-│   ├── site.webmanifest
-│   ├── akhand.png
-│   ├── akhil.jpeg
-│   ├── archit.jpeg
-│   ├── arjun.jpeg
-│   ├── avnee.png
-│   ├── home1.jpg
-│   ├── ... (other images used in HTML)
-├── .env                  # Environment variables (API keys)
-└── README.md             # This file
-
----
-
 ## 👨‍💻 Team: Binary_Brains
 *   **Akhand Pratap Shukla:** Team Lead & ML Developer
 *   **Akhil Pandey:** Backend Developer
