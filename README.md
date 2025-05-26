@@ -2,7 +2,6 @@
 
 **Krishi-Help** is a comprehensive web platform designed to assist farmers by providing essential agricultural resources, cutting-edge predictive analytics for crop recommendation and price forecasting, an AI-powered chatbot for instant support, and real-time weather updates. Our mission is to leverage technology to simplify decision-making, enhance productivity, and promote sustainable agricultural practices.
 
-**Live Demo/Deployed Link:** (If you have one, add it here! e.g., `https://krishi-help.herokuapp.com`)
 **Team:** Binary_Brains
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
@@ -32,22 +31,6 @@
 *   **Real-Time Weather Forecast:**
     *   Provides current weather conditions (temperature, description, main condition) for any specified city.
     *   Integrated with the OpenWeatherMap API.
-
----
-
-## 📸 Screenshots
-
-*(Consider adding 2-3 key screenshots here directly in the README if your GitHub plan supports it, or link to an imgur album. For now, users can refer to your PPT.)*
-
-*   **Homepage:**
-    ![Homepage Screenshot](<link_to_your_homepage_screenshot_if_available_else_remove_this_line>)
-    *(Your Screenshot 1)*
-*   **Crop Recommendation:**
-    ![Crop Recommendation Screenshot](<link_to_your_crop_recommendation_screenshot_if_available_else_remove_this_line>)
-    *(Your Screenshot 4)*
-*   **Krishi-Bot:**
-    ![Chatbot Screenshot](<link_to_your_chatbot_screenshot_if_available_else_remove_this_line>)
-    *(Your Screenshot 3)*
 
 ---
 
@@ -99,10 +82,22 @@ To run this project locally, follow these steps:
     ```
 
 3.  **Install dependencies:**
+    The `requirements.txt` file contains the following :
+    ```
+    Flask
+    numpy
+    pandas
+    scikit-learn
+    joblib
+    python-dotenv
+    requests
+    google-generativeai
+    # Add any other specific versions if needed, e.g., Flask==2.0.1
+    ```
+    Install them using:
     ```bash
     pip install -r requirements.txt
     ```
-    *(You'll need to create a `requirements.txt` file. See below.)*
 
 4.  **Set up Environment Variables:**
     *   Create a `.env` file in the root directory of the project.
@@ -125,9 +120,67 @@ To run this project locally, follow these steps:
 
 ---
 
-### Creating `requirements.txt`
+## 🚀 Project Structure
+Binary_Brains/
+├── app.py                # Main Flask application
+├── models/               # Directory for trained ML models and scalers
+│   ├── crop_model.pkl
+│   ├── sc.pkl
+│   ├── mx.pkl
+│   ├── fertilizer.pkl
+│   ├── crop_price.pkl
+│   ├── min_max_scaler.pkl
+│   ├── model_columns.pkl
+│   ├── original_numerical_cols.pkl
+│   └── original_categorical_cols.pkl
+├── templates/            # HTML templates
+│   ├── Home_page.html
+│   ├── about.html
+│   ├── chat.html
+│   ├── contact_us.html
+│   ├── crop_predict.html
+│   ├── crop_price.html
+│   └── weather.html
+├── static/               # Static files (CSS, JS, images, favicons)
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── site.webmanifest
+│   ├── akhand.png
+│   ├── akhil.jpeg
+│   ├── archit.jpeg
+│   ├── arjun.jpeg
+│   ├── avnee.png
+│   ├── home1.jpg
+│   ├── ... (other images used in HTML)
+├── .env                  # Environment variables (API keys - DO NOT COMMIT THIS FILE if it contains real keys, use .env.example)
+├── .gitignore            # Specifies intentionally untracked files that Git should ignore
+└── README.md             # This file
 
-If you don't have a `requirements.txt` file, you can generate one after installing all necessary packages in your virtual environment:
+---
 
-```bash
-pip freeze > requirements.txt
+## 👨‍💻 Team: Binary_Brains
+*   **Akhand Pratap Shukla:** Team Lead & ML Developer
+*   **Akhil Pandey:** Backend Developer
+*   **Archit Awasthi:** Database Administrator / Frontend Developer
+*   **Avnee Gaur:** Frontend Developer / UI/UX Designer
+*   **Arjun Singh:** UI/UX Designer
+
+
+---
+
+## 💡 Future Scope
+*   **Mobile Application:** Develop native mobile apps for wider accessibility.
+*   **Expanded Datasets:** Incorporate more granular regional data for enhanced model accuracy.
+*   **Marketplace Integration:** Connect farmers with local markets or suppliers directly.
+*   **IoT Integration:** Explore using sensor data for hyper-local crop/pest management.
+*   **Advanced Chatbot Capabilities:** Deeper domain knowledge and personalized advice.
+*   **User Accounts & Personalization:** Allow users to save preferences and historical data.
+
+---
+
+## 🙏 Acknowledgements
+*   Professors and mentors for their guidance.
+*   Google for the Gemini API.
+*   OpenWeatherMap for their weather data API.
+*   The open-source community for the libraries and tools used.
