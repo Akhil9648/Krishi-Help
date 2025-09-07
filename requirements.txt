@@ -9,7 +9,7 @@ gunicorn==23.0.0   # For production deployment on Render
 streamlit==1.45.1
 
 # ---- Machine Learning / AI ----
-tensorflow==2.16.1
+tensorflow==2.15.1
 torch==2.7.0
 torchvision==0.22.0
 torchaudio==2.7.0
