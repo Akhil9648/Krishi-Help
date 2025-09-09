@@ -68,8 +68,8 @@ To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Akhil9648/Binary_Brains.git
-    cd Binary_Brains
+    git clone https://github.com/Akhil9648/Krishi-Help.git
+    cd Krishi-Help
     ```
 
 2.  **Create and activate a virtual environment (recommended):**
